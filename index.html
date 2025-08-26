@@ -1,542 +1,720 @@
+
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-bs-theme="auto">
 <head>
   <meta charset="utf-8"/>
-  <title>Seiya Ito</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seiya Ito｜伊東 聖矢</title>
+  <meta name="description" content="Seiya Ito (伊東 聖矢) — Researcher in Computer Vision, Machine Learning, and Robotics at NICT ARTL.">
+  <meta property="og:title" content="Seiya Ito｜伊東 聖矢">
+  <meta property="og:description" content="Researcher in Computer Vision, Machine Learning, and Robotics at NICT ARTL.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="imgs/prof.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --brand: #4f46e5; --brand-2: #06b6d4; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif; }
+    /* Hero */
+    .hero {
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(79,70,229,.18), transparent),
+                  radial-gradient(1200px 600px at 110% 10%, rgba(6,182,212,.18), transparent);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    [data-bs-theme="dark"] .hero { border-bottom-color: rgba(255,255,255,.08); }
+    .avatar { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+    .accent { background: linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .chip { border: 1px solid rgba(0,0,0,.08); padding: .35rem .6rem; border-radius: 100px; font-size: .9rem; }
+    [data-bs-theme="dark"] .chip { border-color: rgba(255,255,255,.15); }
+
+    /* Cards */
+    .soft-card { border: 1px solid rgba(0,0,0,.06); border-radius: 1rem; transition: transform .18s ease, box-shadow .18s ease; }
+    .soft-card:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.08); }
+    [data-bs-theme="dark"] .soft-card { border-color: rgba(255,255,255,.12); }
+
+    /* Timeline */
+    .timeline { position: relative; margin-left: 1rem; }
+    .timeline::before { content: ""; position: absolute; left: .6rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--brand), var(--brand-2)); opacity: .35; }
+    .tl-item { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
+    .tl-item::before { content: ""; position: absolute; left: 0; top: .2rem; width: .85rem; height: .85rem; background: linear-gradient(180deg, var(--brand), var(--brand-2)); border-radius: 50%; box-shadow: 0 2px 8px rgba(79,70,229,.35); }
+
+    /* Section spacing */
+    section { padding: 3.5rem 0; }
+
+    /* Footer */
+    footer { border-top: 1px solid rgba(0,0,0,.06); padding: 2rem 0; }
+    [data-bs-theme="dark"] footer { border-top-color: rgba(255,255,255,.12); }
+
+    /* Utilities */
+    .muted { color: var(--bs-secondary-color); }
+    .icon-link { text-decoration: none; }
+    .icon-link:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <br>
-    <div class="row">
-      <div class="col-md-4 col-lg-4">
-        <div class="text-center">
-          <img id="me" alt="" src="imgs/prof.jpg" width="200" />
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md bg-body sticky-top border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#">Seiya Ito</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="ms-3">
+          <button id="themeToggle" class="btn btn-outline-secondary btn-sm" aria-label="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
         </div>
       </div>
-      <div class="col-md-8 col-lg-8">
-          <br>
-          <h4><b>Seiya Ito&nbsp; (伊東 聖矢)</b></h4>
-          <br>
-          <p>
-          I am a researcher at the <a href="https://www.nict.go.jp/">National Institute of Information and Communications Technology</a>. I received my Doctor of Engineering degree from Aoyama Gakuin University in 2021 under the supervision of Prof. Kazuhiko Sumi. I was previously an assistant professor at Aoyama Gakuin University from 2021 to 2023. My research interests include computer vision, machine learning, and robotics.
-          </p>
-          <p>
-            [<a href="mailto:ito.seiya.1127@gmail.com">Email</a>]
-            [<a href="https://www.linkedin.com/in/seiyaito/">LinkedIn</a>]
-          </p>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container py-5">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-md-3 text-center text-md-start">
+          <img class="avatar" src="imgs/prof.jpg" alt="Portrait of Seiya Ito"/>
+        </div>
+        <div class="col-12 col-md-9">
+          <div class="d-flex align-items-center gap-3 flex-wrap mb-2">
+            <h1 class="display-6 m-0">Seiya Ito <span class="muted">｜</span> <span class="fw-normal">伊東 聖矢</span></h1>
+            <span class="chip"><i class="bi bi-geo-alt"></i> NICT ARTL (Kyoto/Tokyo)</span>
+          </div>
+          <p class="lead mb-3">Researcher in <span class="accent">Computer Vision</span>, Machine Learning, and Robotics.</p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary" href="#publications"><i class="bi bi-journal-text me-1"></i>Publications</a>
+            <a class="btn btn-outline-primary" href="#projects"><i class="bi bi-box-seam me-1"></i>Projects</a>
+            <a class="btn btn-outline-secondary" href="#news"><i class="bi bi-megaphone me-1"></i>News</a>
+          </div>
+        </div>
       </div>
     </div>
-    <br>
+  </header>
 
-    <br>
-    <h4>News</h4>
-    <ul>
-      <li>2025/06/16. One paper has been accepted to IROS 2025.</li>
-      <li>2025/06/10. Two papers have been accepted to MVA 2025.</li>
-      <li>2024/11/23. One paper has been accepted to QCAV 2025.</li>
-      <li>2024/02/19. Our paper has received the Excellent Research Paper Award at IW-FCV 2025.</li>
-      <li>2023/06/01. I have started to work as a researcher at NICT.
-    </ul>
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="soft-card p-4">
+            <h2 class="h4 mb-3">About</h2>
+            <p>
+              I am a researcher at the <a href="https://www.nict.go.jp/" target="_blank" class="icon-link">National Institute of Information and Communications Technology</a>.<br>
+              I received my Doctor of Engineering from Aoyama Gakuin University in 2021 under the supervision of Prof. Kazuhiko Sumi. I was an assistant professor at Aoyama Gakuin University from 2021 to 2023. My research interests include computer vision, machine learning, and robotics.
+            </p>
+            <div class="d-flex gap-3 flex-wrap mt-2">
+              <a class="icon-link" href="mailto:ito.seiya.1127@gmail.com"><i class="bi bi-envelope me-1"></i>Email</a>
+              <a class="icon-link" href="https://www.linkedin.com/in/seiyaito/" target="_blank"><i class="bi bi-linkedin me-1"></i>LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="soft-card p-4">
+            <h2 class="h6 mb-3">Research Interests</h2>
+            <ul class="mb-0">
+              <li>3D Reconstruction</li>
+              <li>Depth Estimation</li>
+              <li>Semantic Segmentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <br>
-    <h4>Education</h4>
-    <table class="table">
-      <tbody>
-        <tr>
-          <td width="20%">2018.4-2021.3</td>
-          <td>
-            Dr.Eng., Aoyama Gakuin University<br>
-            Graduate School of Science and Engineering
-          </td>
-        </tr>
-        <tr>
-          <td>2016.4-2018.3</td>
-          <td>
-            M.S., Aoyama Gakuin University<br>
-            Graduate School of Science and Engineering
-          </td>
-        </tr>
-        <tr>
-          <td>2012.4-2016.3</td>
-          <td>
-            B.E., Aoyama Gakuin University<br>
-            Department of Integrated Information Technology
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
+  <!-- News -->
+  <section id="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2 class="h4 mb-3">News</h2>
+          <div class="timeline">
+            <div class="tl-item"><div class="small muted">2025/06/16</div><div>One paper has been accepted to IROS 2025.</div></div>
+            <div class="tl-item"><div class="small muted">2025/06/10</div><div>Two papers have been accepted to MVA 2025.</div></div>
+            <div class="tl-item"><div class="small muted">2024/11/23</div><div>One paper has been accepted to QCAV 2025.</div></div>
+            <div class="tl-item"><div class="small muted">2024/02/19</div><div>Our paper received the Excellent Research Paper Award at IW-FCV 2025.</div></div>
+            <div class="tl-item"><div class="small muted">2023/06/01</div><div>Started as a researcher at NICT.</div></div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="soft-card p-4">
+            <h3 class="h6 mb-2">Quick Links</h3>
+            <div class="d-grid gap-2">
+              <a class="btn btn-outline-secondary" href="#experience"><i class="bi bi-briefcase me-1"></i>Experience</a>
+              <a class="btn btn-outline-secondary" href="#education"><i class="bi bi-mortarboard me-1"></i>Education</a>
+              <a class="btn btn-outline-secondary" href="#awards"><i class="bi bi-trophy me-1"></i>Awards</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h4>Experience</h4>
-    <table class="table">
-      <tbody>
-        <tr>
-          <td width="20%">2023.10-current</td>
-          <td>
-            Visiting Researcher, Aoyama Gakuin University
-          </td>
-        </tr>
-        <tr>
-          <td width="20%">2023.6-current</td>
-          <td>
-            Researcher, National Institute of Information and Communications Technology (NICT)<br>
-            <span style="color: #999"><a href="https://ucri.nict.go.jp/artl/" target="_blank">Advanced Reality Technology Laboratory (ARTL)</a>, <a href="https://ucri.nict.go.jp/" target="_blank">Universal Communication Research Institute (UCRI)</a></span>
+  <!-- Experience & Education -->
+  <section id="experience">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5" id="education">
+          <h2 class="h4 mb-3">Education</h2>
+          <div class="soft-card p-0">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>Dr.Eng.</strong><span class="muted small">2018.4 – 2021.3</span></div>
+                <div>Aoyama Gakuin University</div>
+                <div class="small muted">Graduate School of Science and Engineering</div>
+              </div>
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>M.S.</strong><span class="muted small">2016.4 – 2018.3</span></div>
+                <div>Aoyama Gakuin University</div>
+                <div class="small muted">Graduate School of Science and Engineering</div>
+              </div>
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>B.E.</strong><span class="muted small">2012.4 – 2016.3</span></div>
+                <div>Aoyama Gakuin University</div>
+                <div class="small muted">Department of Integrated Information Technology</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <h2 class="h4 mb-3">Experience</h2>
+          <div class="soft-card p-0">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>Researcher</strong><span class="muted small">2023.6 – current</span></div>
+                <div>National Institute of Information and Communications Technology (NICT)</div>
+                <div class="small muted">Advanced Reality Technology Laboratory (ARTL), Universal Communication Research Institute (UCRI)</div>
+              </div>
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>Visiting Researcher</strong><span class="muted small">2023.10 – current</span></div>
+                <div>Aoyama Gakuin University</div>
+              </div>
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>Assistant Professor</strong><span class="muted small">2021.9 – 2023.5</span></div>
+                <div>Aoyama Gakuin University</div>
+                <div class="small muted">Department of Integrated Information Technology</div>
+              </div>
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>JSPS Research Fellow (PD/DC2)</strong><span class="muted small">2020.4 – 2022.3</span></div>
+                <div>Aoyama Gakuin University</div>
+              </div>
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>Research Intern</strong><span class="muted small">2019.9 – 2021.3</span></div>
+                <div>National Institute of Advanced Industrial Science and Technology (AIST)</div>
+                <div class="small muted">Artificial Intelligence Research Center (AIRC)</div>
+              </div>
+              <div class="list-group-item py-3">
+                <div class="d-flex justify-content-between"><strong>Research Assistant</strong><span class="muted small">2018.11 – 2021.3</span></div>
+                <div>Aoyama Gakuin University</div>
+                <div class="small muted">Center for Advanced Information Technology Research (CAIR)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
 
-          </td>
-        </tr>
-        <tr>
-          <td width="20%">2021.9-2023.5</td>
-          <td>
-            Assistant Professor, Aoyama Gakuin University<br>
-            <span style="color: #999">Department of Integrated Information Technology</span>
-          </td>
-        </tr>
-        <tr>
-          <td width="20%">2021.4-2021.8</td>
-          <td>
-            Research Fellow of Japan Society for the Promotion of Science (PD),<br>
-            Aoyama Gakuin University
-          </td>
-        </tr>
-        <tr>
-          <td width="20%">2020.4-2021.3</td>
-          <td>
-            Research Fellow of Japan Society for the Promotion of Science (DC2),<br>
-            Aoyama Gakuin University
-          </td>
-        </tr>
-        <tr>
-          <td width="20%">2019.9-2021.3</td>
-          <td>
-            Research Intern, National Institute of Advanced Industrial Science and Technology (AIST)<br> 
-            <span style="color: #999">Artificial Intelligence Research Center (AIRC)</span><br>
-          </td>
-        </tr>
-        <tr>
-          <td width="20%">2018.11-2021.3</td>
-          <td>
-            Research Assistant, Aoyama Gakuin University<br>
-            <span style="color: #999">Center for Advanced Information technology Research (CAIR)<span>
-          </td>
-        </tr>
-        <tr>
-          <td>2017.02-2018.3</td>
-          <td>
-            Research Intern, Nippon Telegraph and Telephone Corporation<br>
-            <span style="color: #999">NTT Communication Science Laboratories</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Publications -->
+  <section id="publications">
+    <div class="container">
+      <h2 class="h4 mb-3">Publications</h2>
+      <ul class="nav nav-pills mb-3" id="pubTabs" role="tablist">
+        <li class="nav-item" role="presentation"><button class="nav-link active" id="tab-journal" data-bs-toggle="pill" data-bs-target="#journal" type="button" role="tab">Journal</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" id="tab-intl" data-bs-toggle="pill" data-bs-target="#intl" type="button" role="tab">International Conference</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" id="tab-others" data-bs-toggle="pill" data-bs-target="#others" type="button" role="tab">Others</button></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="journal" role="tabpanel">
+          <ol class="mb-0">
+            <li>
+              <p>Tomoaki Yamazaki, <u>Seiya Ito</u>, Kouzou Ohara.<br>
+                <strong>Evaluation of Sense Embeddings with Optimized Vector-Meaning Correspondence</strong><br>
+                IEICE Transactions on Information and Systems, 2025.<br>
+                [<a href="https://doi.org/10.1587/transinf.2024IIP0013" target="_blank">Paper</a>]
+              </p>
+            </li>
+            <li>
+              <p>Wisan Dhammatorn, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <strong>Combining Instance Segmentation and Background Subtraction Models for Small Object Detection</strong><br>
+                International Journal of Automation Technology, 2025.<br>
+                [<a href="https://doi.org/10.20965/ijat.2025.p0237" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-    <h4>Research Interests</h4>
-    <ul>
-      <li>3D Reconstruction</li>
-      <li>Depth Estimation</li>
-      <li>Semantic Segmentation</li>
-    </ul>
+            <li>
+              <p>村上 紀超, 山崎 禎晃, <u>伊東 聖矢</u>, 大原 剛三.<br>
+                <strong>画像分類における誤分類リスクを考慮した敵対的学習</strong><br>
+                精密工学会誌, 2025 (in Japanese).<br>
+                <i style="color: #999">(Adversarial Training with Misclassification Risk in Image Classification)</i><br>
+                [<a href="https://doi.org/10.2493/jjspe.91.89" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-    <h4>Journal Publications</h4>
-    <ol>
+            <li>
+              <p>村田 健悟, <u>伊東 聖矢</u>, 大原 剛三.<br>
+                <strong>表現空間における分類複雑性の評価に基づく継続学習分析手法の提案</strong><br>
+                人工知能学会論文誌, 2024 (in Japanese).<br>
+                <i style="color: #999">(A Novel Analytical Method Based on Classification Complexity in Representation Spaces for Continual Learning)</i><br>
+                [<a href="https://doi.org/10.1527/tjsai.39-2_A-N41" target="_blank">Paper</a>]
+              </p>        
+            </li>
 
-      <li>
-        <p>Tomoaki Yamazaki, <u>Seiya Ito</u>, Kouzou Ohara.<br>
-          <b>Evaluation of Sense Embeddings with Optimized Vector-Meaning Correspondence</b><br>
-          IEICE Transactions on Information and Systems, 2025.<br>
-          [<a href="https://doi.org/10.1587/transinf.2024IIP0013" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>山下 大樹, 村田 健悟, <u>伊東 聖矢</u>, 大原 剛三.<br>
+                <strong>使用食材の典型度に頑健な料理画像からのカテゴリと食材の同時推定</strong><br>
+                精密工学会誌, 2023 (in Japanese).<br>
+                <i style="color: #999">(Category and Ingredients Estimation From Food Image Robust to Typicality of Used Ingredients)</i><br>
+                [<a href="https://doi.org/10.2493/jjspe.89.956" target="_blank">Paper</a>]
+              </p>        
+            </li>
 
-      <li>
-        <p>Wisan Dhammatorn, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Combining Instance Segmentation and Background Subtraction Models for Small Object Detection</b><br>
-          International Journal of Automation Technology, 2025.<br>
-          [<a href="https://doi.org/10.20965/ijat.2025.p0237" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p><u>伊東 聖矢</u>, 金子 直史, 鷲見 和彦.<br>
+                <strong>自己教師あり学習を用いた多眼ステレオ</strong><br>
+                精密工学会誌, 2020 (in Japanese).<br>
+                <i style="color: #999">(Self-Supervised Learning for Multi-View Stereo)</i><br>
+                [<a href="https://doi.org/10.2493/jjspe.86.1042" target="_blank">Paper</a>]
+              </p>
+            </li>
 
+            <li>
+              <p><u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <strong>Latent 3D Volume for Joint Depth Estimation and Semantic Segmentation from a Single Image</strong><br>
+                Sensors, 2020.<br>
+                [<a href="https://doi.org/10.3390/s20205765" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>村上 紀超, 山崎 禎晃, <u>伊東 聖矢</u>, 大原 剛三.<br>
-          <b>画像分類における誤分類リスクを考慮した敵対的学習</b><br>
-          精密工学会誌, 2025 (in Japanese).<br>
-          <i style="color: #999">(Adversarial Training with Misclassification Risk in Image Classification)</i><br>
-          [<a href="https://doi.org/10.2493/jjspe.91.89" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>Junji Takahashi, Masato Kawabe, <u>Seiya Ito</u>, Naoshi Kaneko, Wataro Takahashi, Toshiki Sakamoto, Akihiro Shibata, Yong Yu.<br>
+                <strong>Image-retrieval Method Using Gradient Dilation Images for Cloud-based Positioning System with 3D Wireframe Map</strong><br>
+                Sensors and Materials, 2020.<br>
+                [<a href="https://myukk.org/SM2017/article.php?ss=2678" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>村田 健悟, <u>伊東 聖矢</u>, 大原 剛三.<br>
-          <b>表現空間における分類複雑性の評価に基づく継続学習分析手法の提案</b><br>
-          人工知能学会論文誌, 2024 (in Japanese).<br>
-          <i style="color: #999">(A Novel Analytical Method Based on Classification Complexity in Representation Spaces for Continual Learning)</i><br>
-          [<a href="https://doi.org/10.1527/tjsai.39-2_A-N41" target="_blank">Paper</a>]
-        </p>        
-      </li>
+            <li>
+              <p>釜田 祐哉, <u>伊東 聖矢</u>, 金子 直史, 鷲見 和彦.<br>
+                <strong>食品チラシ画像を用いたレシピ推薦システム</strong><br>
+                精密工学会誌, 2019 (in Japanese).<br>
+                <i style="color: #999">(Automatic Recipe Recommendation from Food Flyers)</i><br>
+                [<a href="https://doi.org/10.2493/jjspe.85.1127" target="_blank">Paper</a>][<a href="https://aoyamacvl.github.io/recipe-from-flyers/" target="blank">Project Page</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>山下 大樹, 村田 健悟, <u>伊東 聖矢</u>, 大原 剛三.<br>
-          <b>使用食材の典型度に頑健な料理画像からのカテゴリと食材の同時推定</b><br>
-          精密工学会誌, 2023 (in Japanese).<br>
-          <i style="color: #999">(Category and Ingredients Estimation From Food Image Robust to Typicality of Used Ingredients)</i><br>
-          [<a href="https://doi.org/10.2493/jjspe.89.956" target="_blank">Paper</a>]
-        </p>        
-      </li>
+            <li>
+              <p>
+                Tomoya Kaneko, Junji Takahashi, <u>Seiya Ito</u>, Yoshito Tobe.<br>
+                <strong>A Hybrid Map with Permanent 3D Wireframes and Temporal Line Segments toward Long-term Visual Localization</strong><br>
+                SICE Journal of Control, Measurement, and System Integration (Special Issue on Fundamentals and Applications of Smart Sensing), 2019.<br>
+                [<a href="https://doi.org/10.9746/jcmsi.12.149" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p><u>伊東 聖矢</u>, 金子 直史, 鷲見 和彦.<br>
-          <b>自己教師あり学習を用いた多眼ステレオ</b><br>
-          精密工学会誌, 2020 (in Japanese).<br>
-          <i style="color: #999">(Self-Supervised Learning for Multi-View Stereo)</i><br>
-          [<a href="https://doi.org/10.2493/jjspe.86.1042" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                金子 直史, <u>伊東 聖矢</u>, 鷲見 和彦.<br>
+                <strong>ClothesAwarePoseNet: 衣服の領域分割を考慮した人物姿勢推定法</strong><br>
+                電子情報通信学会論文誌 D (画像の認識・理解特集号), 2018 (in Japanese).<br>
+                <i style="color: #999">(ClothesAwarePoseNet: Two-Stream Convolutional Networks for Clothing-Aware Human Pose Estimation)</i><br>
+                [<a href="https://search.ieice.org/bin/summary.php?id=j101-d_8_1130&category=D&year=2018&lang=J&abst=" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p><u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Latent 3D Volume for Joint Depth Estimation and Semantic Segmentation from a Single Image</b><br>
-          Sensors, 2020.<br>
-          [<a href="https://doi.org/10.3390/s20205765" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                <u>Seiya Ito</u>, Naoshi Kaneko, Takeshi Yoshida, and Kazuhiko Sumi.<br>
+                <strong>Detection of Defective Regions in 3D Reconstruction to Support Image Acquisition</strong><br>
+                SICE Journal of Control, Measurement, and System Integretion (Special Issue on Smart Sensing), 2017.<br>
+                [<a href="https://doi.org/10.9746/jcmsi.10.402" target="_blank">Paper</a>]
+              </p>
+            </li>
+          </ol>
+        </div>
+        <div class="tab-pane fade" id="intl" role="tabpanel">
+          <ol class="mb-0">
+            <li>
+              <p>
+                Keisuke Yamashita, <u>Seiya Ito</u>, Tomoaki Yamazaki, Kouzou Ohara.<br>
+                <b>Scene Recognition Meets Knowledge Graphs: Enhancing Rubustness to Object Diversity</b><br>
+                The 19th International Conference on Machine Vision Application (MVA 2025), 2025.<br>
+                [<a href="#" target="_blank">Paper</a>]
+              </p>
+            </li>
+            <li>
+              <p>
+                Yuta Irisawa, <u>Seiya Ito</u>, Tomoaki Yamazaki, Ken Sakurada, Ryuhei Hamaguchi, Masaki Onishi, Kouzou Ohara.<br>
+                <b>Viewpoint-Aware 3D Dense Captioning</b><br>
+                The 19th International Conference on Machine Vision Application (MVA 2025), 2025.<br>
+                [<a href="#" target="_blank">Paper</a>]
+              </p>
+            </li>
+            
+            <li>
+              <p>
+                Kakeru Ohkuchi, Tomoaki Yamazaki, <u>Seiya Ito</u>, Kouzou Ohara.<br>
+                <b> Exploiting Class Vulnerabilities: Targeted Mislabeling Attack in Object Detection</b><br>
+                The 16th International Conference on Quality Control by Artificial Vision (QCAV 2025), 2025.<br>
+                [<a href="#" target="_blank">Paper</a>]
+              </p>
+            </li>
+            <li>
+              <p>
+                Tomoaki Yamazaki, <u>Seiya Ito</u>, Kouzou Ohara.<br>
+                <b>Tailoring Ranking-based Losses to Capture Superior-Subordinate Relationships for Hierarchical Image Classification</b><br>
+                The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
+              </p>
+            </li>
+            <li>
+              <p>
+                Mami Kikuchi, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Learning Part Primitive Degrees for Hierarchical 3D Object Partitioning</b><br>
+                The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
+              </p>
+            </li>
+            <li>
+              <p>
+                Qin-yuan Zhou, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>A Benchmark for 3D Reconstruction with Semantic Completion in Dynamic Environments</b><br>
+                The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
+                [<a href="https://doi.org/10.1007/978-981-97-4249-3_7" target="_blank">Paper</a>][<a href="https://github.com/seiyaito/Dyna3DBench">Code</a>]
+              </p>
+            </li>
+            <li>
+              <p>
+                Dhammatorn Wisan, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>Background-aware Two-Stream Network for Moving Object Detection</b><br>
+                The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
+              </p>
+            </li>
+            <li>
+              <p>
+                Yusho Miyashita, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>Speeding Up Semantic Scene Completion: A Completion by Region Proposal Approach</b><br>
+                The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
+              </p>
+            </li>
+            <li>
+              <p>
+                Mami Kikuchi, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b> Part-Level Single-View 3D Shape Reconstruction with Multiple Types of Primitives</b><br>
+                The 16th International Conference on Quality Control by Artificial Vision (QCAV 2023), 2023.<br>
+                [<a href="https://doi.org/10.1117/12.2688290" target="_blank">Paper</a>]
+              </p>
+            </li>
+            <li>
+              <p>
+                Dhammatorn Wisan, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>Two-stream Network for Moving Object Detection</b><br>
+                The 29th International Workshop on Frontiers of Computer Vision (IW-FCV 2023), 2023.<br>
+              </p>
+            </li>
+            <li>
+              <p>
+                Tomoaki Yamazaki*, <u>Seiya Ito*</u>, Kouzou Ohara (* equal contribution).<br>
+                <b>Hierarchical Image Classification with Conceptual Hierarchies Generated via Lexical Databases</b><br>
+                The 29th International Workshop on Frontiers of Computer Vision (IW-FCV 2023), 2023.<br>
+              </p>
+            </li>
+            <li>
+              <p>
+                Kengo Murata, <u>Seiya Ito</u>, Kouzou Ohara.<br>
+                <b>Learning and Transforming General Representations to Break Down Stability-Plasticity Dilemma</b><br>
+                The 16th Asian Conference of Computer Vision (ACCV 2022), 2022.<br>
+                [<a href="https://openaccess.thecvf.com/content/ACCV2022/papers/Murata_Learning_and_Transforming_General_Representations_to_Break_Down_Stability-Plasticity_Dilemma_ACCV_2022_paper.pdf" target="_blank">Paper</a>]
+              </p>
+            </li>
+            <li>
+              <p>
+                Hiroki Kojima, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>Multimodal Pseudo-Labeling Under Various Shooting Conditions: Case Study on RGB and IR Images</b><br>
+                The 28th International Workshop on Frontiers of Computer Vision (IW-FCV 2022), 2022.<br>
+                [<a href="https://doi.org/10.1007/978-3-031-06381-7_9" target="_blank">Paper</a>]
+              </p>
+            </li>
+            <li>
+              <p>
+                <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Dense Panoptic Mapping from RGB-D Sequences in Dynamic Scenes</b><br>
+                The 28th International Workshop on Frontiers of Computer Vision (IW-FCV 2022), 2022.<br>
+              </p>
+            </li>
+            <li>
+              <p>
+                <u>Seiya Ito</u>, Byeongjun Ju, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Viewpoint-independent Single-view 3D Object Reconstruction using Reinforcement Learning</b><br>
+                The 17th International Conference on Computer Vision Theory and Applications (VISAPP 2022), 2022.<br>
+                [<a href="https://doi.org/10.5220/0010825900003124" target="_blank">Paper</a>]
+              </p>
+            </li>
+            <li>
+              <p>
+                <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Seeing Farther Than Supervision: Self-supervised Depth Completion in Challenging Environments</b><br>
+                The 17th International Conference on Machine Vision Applications (MVA 2021), 2021.<br>
+                [<a href="https://doi.org/10.23919/MVA51890.2021.9511354" target="_blank">Paper</a>][<a href="https://github.com/seiyaito/sfts">Code</a> (Not published due to license issues)]
+              </p>
+            </li>
+            <li>
+              <p>
+                Taku Fujitomi, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Bi-directional Recurrent MVSNet for High-resolution Multi-view Stereo</b><br>
+                The 17th International Conference on Machine Vision Applications (MVA 2021), 2021.<br>
+                [<a href="https://doi.org/10.23919/MVA51890.2021.9511358" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>Junji Takahashi, Masato Kawabe, <u>Seiya Ito</u>, Naoshi Kaneko, Wataro Takahashi, Toshiki Sakamoto, Akihiro Shibata, Yong Yu.<br>
-          <b>Image-retrieval Method Using Gradient Dilation Images for Cloud-based Positioning System with 3D Wireframe Map</b><br>
-          Sensors and Materials, 2020.<br>
-          [<a href="https://myukk.org/SM2017/article.php?ss=2678" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Takafumi Nagi, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>Automatic Dataset Collection for Speech-Driven Gesture Generation</b><br>
+                The 15th International Conference on Quality Control by Artificial Vision (QCAV 2021), 2021.<br>
+                [<a href="https://doi.org/10.1117/12.2591375" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>釜田 祐哉, <u>伊東 聖矢</u>, 金子 直史, 鷲見 和彦.<br>
-          <b>食品チラシ画像を用いたレシピ推薦システム</b><br>
-          精密工学会誌, 2019 (in Japanese).<br>
-          <i style="color: #999">(Automatic Recipe Recommendation from Food Flyers)</i><br>
-          [<a href="https://doi.org/10.2493/jjspe.85.1127" target="_blank">Paper</a>][<a href="https://aoyamacvl.github.io/recipe-from-flyers/" target="blank">Project Page</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Gakuto Murayama, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>Reducing Depth Ambiguity in 3D Human Pose and Body Shape Estimation</b><br>
+                The 15th International Conference on Quality Control by Artificial Vision (QCAV 2021), 2021.<br>
+                [<a href="https://doi.org/10.1117/12.2591151" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          Tomoya Kaneko, Junji Takahashi, <u>Seiya Ito</u>, Yoshito Tobe.<br>
-          <b>A Hybrid Map with Permanent 3D Wireframes and Temporal Line Segments toward Long-term Visual Localization</b><br>
-          SICE Journal of Control, Measurement, and System Integration (Special Issue on Fundamentals and Applications of Smart Sensing), 2019.<br>
-          [<a href="https://doi.org/10.9746/jcmsi.12.149" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Hiroki Kojima, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>You Don't Drink a Cupboard: Improving Egocentric Action Recognition with Co-Occurrence of Verbs and Nouns</b><br>
+                The 15th International Conference on Quality Control by Artificial Vision (QCAV 2021), 2021.<br>
+                [<a href="https://doi.org/10.1117/12.2591298" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          金子 直史, <u>伊東 聖矢</u>, 鷲見 和彦.<br>
-          <b>ClothesAwarePoseNet: 衣服の領域分割を考慮した人物姿勢推定法</b><br>
-          電子情報通信学会論文誌 D (画像の認識・理解特集号), 2018 (in Japanese).<br>
-          <i style="color: #999">(ClothesAwarePoseNet: Two-Stream Convolutional Networks for Clothing-Aware Human Pose Estimation)</i><br>
-          [<a href="https://search.ieice.org/bin/summary.php?id=j101-d_8_1130&category=D&year=2018&lang=J&abst=" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Naoshi Kaneko, Mei Oyamay, Masaki Hayashiz, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
+                <b>Feature Bridging Networks for 3D Human BodyShape Estimation from a Single Depth Map</b><br>
+                The 4th International Conference on Imaging, Vision &amp; Pattern Recognition (IVPR 2020), 2020.<br>
+                [<a href="https://doi.org/10.1109/ICIEVicIVPR48672.2020.9306656" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          <u>Seiya Ito</u>, Naoshi Kaneko, Takeshi Yoshida, and Kazuhiko Sumi.<br>
-          <b>Detection of Defective Regions in 3D Reconstruction to Support Image Acquisition</b><br>
-          SICE Journal of Control, Measurement, and System Integretion (Special Issue on Smart Sensing), 2017.<br>
-          [<a href="https://doi.org/10.9746/jcmsi.10.402" target="_blank">Paper</a>]
-        </p>
-      </li>
-    </ol>
-    <br>
+            <li>
+              <p>
+                Ryo Tamura, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Towards Detailed 3D Modeling: Mesh Super-Resolution via Deformation</b><br>
+                The 4th International Conference on Imaging, Vision &amp; Pattern Recognition (IVPR 2020), 2020.<br>
+                [<a href="https://doi.org/10.1109/ICIEVicIVPR48672.2020.9306533" target="_blank">Paper</a>]
+              </p>
+            </li>
 
-    <h4>International Conference</h4>
-    <ol>
-      <li>
-        <p>
-          Keisuke Yamashita,<u>Seiya Ito</u>, Tomoaki Yamazaki, Kouzou Ohara.<br>
-          <b>Scene Recognition Meets Knowledge Graphs: Enhancing Rubustness to Object Diversity</b><br>
-          The 19th International Conference on Machine Vision Application (MVA 2025), 2025.<br>
-          [<a href="#" target="_blank">Paper</a>]
-        </p>
-      </li>
-      <li>
-        <p>
-          Yuta Irisawa, <u>Seiya Ito</u>, Tomoaki Yamazaki, Ken Sakurada, Ryuhei Hamaguchi, Masaki Onishi, Kouzou Ohara.<br>
-          <b>Viewpoint-Aware 3D Dense Captioning</b><br>
-          The 19th International Conference on Machine Vision Application (MVA 2025), 2025.<br>
-          [<a href="#" target="_blank">Paper</a>]
-        </p>
-      </li>
-      
-      <li>
-        <p>
-          Kakeru Ohkuchi, Tomoaki Yamazaki, <u>Seiya Ito</u>, Kouzou Ohara.<br>
-          <b> Exploiting Class Vulnerabilities: Targeted Mislabeling Attack in Object Detection</b><br>
-          The 16th International Conference on Quality Control by Artificial Vision (QCAV 2025), 2025.<br>
-          [<a href="#" target="_blank">Paper</a>]
-        </p>
-      </li>
-      <li>
-        <p>
-          Tomoaki Yamazaki, <u>Seiya Ito</u>, Kouzou Ohara.<br>
-          <b>Tailoring Ranking-based Losses to Capture Superior-Subordinate Relationships for Hierarchical Image Classification</b><br>
-          The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
-        </p>
-      </li>
-      <li>
-        <p>
-          Mami Kikuchi, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Learning Part Primitive Degrees for Hierarchical 3D Object Partitioning</b><br>
-          The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
-        </p>
-      </li>
-      <li>
-        <p>
-          Qin-yuan Zhou, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>A Benchmark for 3D Reconstruction with Semantic Completion in Dynamic Environments</b><br>
-          The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
-          [<a href="https://doi.org/10.1007/978-981-97-4249-3_7" target="_blank">Paper</a>][<a href="https://github.com/seiyaito/Dyna3DBench">Code</a>]
-        </p>
-      </li>
-      <li>
-        <p>
-          Dhammatorn Wisan, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>Background-aware Two-Stream Network for Moving Object Detection</b><br>
-          The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
-        </p>
-      </li>
-      <li>
-        <p>
-          Yusho Miyashita, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>Speeding Up Semantic Scene Completion: A Completion by Region Proposal Approach</b><br>
-          The 30th International Workshop on Frontiers of Computer Vision (IW-FCV 2024), 2024.<br>
-        </p>
-      </li>
-      <li>
-        <p>
-          Mami Kikuchi, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b> Part-Level Single-View 3D Shape Reconstruction with Multiple Types of Primitives</b><br>
-          The 16th International Conference on Quality Control by Artificial Vision (QCAV 2023), 2023.<br>
-          [<a href="https://doi.org/10.1117/12.2688290" target="_blank">Paper</a>]
-        </p>
-      </li>
-      <li>
-        <p>
-          Dhammatorn Wisan, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>Two-stream Network for Moving Object Detection</b><br>
-          The 29th International Workshop on Frontiers of Computer Vision (IW-FCV 2023), 2023.<br>
-        </p>
-      </li>
-      <li>
-        <p>
-          Tomoaki Yamazaki*, <u>Seiya Ito*</u>, Kouzou Ohara (* equal contribution).<br>
-          <b>Hierarchical Image Classification with Conceptual Hierarchies Generated via Lexical Databases</b><br>
-          The 29th International Workshop on Frontiers of Computer Vision (IW-FCV 2023), 2023.<br>
-        </p>
-      </li>
-      <li>
-        <p>
-          Kengo Murata, <u>Seiya Ito</u>, Kouzou Ohara.<br>
-          <b>Learning and Transforming General Representations to Break Down Stability-Plasticity Dilemma</b><br>
-          The 16th Asian Conference of Computer Vision (ACCV 2022), 2022.<br>
-          [<a href="https://openaccess.thecvf.com/content/ACCV2022/papers/Murata_Learning_and_Transforming_General_Representations_to_Break_Down_Stability-Plasticity_Dilemma_ACCV_2022_paper.pdf" target="_blank">Paper</a>]
-        </p>
-      </li>
-      <li>
-        <p>
-          Hiroki Kojima, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>Multimodal Pseudo-Labeling Under Various Shooting Conditions: Case Study on RGB and IR Images</b><br>
-          The 28th International Workshop on Frontiers of Computer Vision (IW-FCV 2022), 2022.<br>
-          [<a href="https://doi.org/10.1007/978-3-031-06381-7_9" target="_blank">Paper</a>]
-        </p>
-      </li>
-      <li>
-        <p>
-          <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Dense Panoptic Mapping from RGB-D Sequences in Dynamic Scenes</b><br>
-          The 28th International Workshop on Frontiers of Computer Vision (IW-FCV 2022), 2022.<br>
-        </p>
-      </li>
-      <li>
-        <p>
-          <u>Seiya Ito</u>, Byeongjun Ju, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Viewpoint-independent Single-view 3D Object Reconstruction using Reinforcement Learning</b><br>
-          The 17th International Conference on Computer Vision Theory and Applications (VISAPP 2022), 2022.<br>
-          [<a href="https://doi.org/10.5220/0010825900003124" target="_blank">Paper</a>]
-        </p>
-      </li>
-      <li>
-        <p>
-          <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Seeing Farther Than Supervision: Self-supervised Depth Completion in Challenging Environments</b><br>
-          The 17th International Conference on Machine Vision Applications (MVA 2021), 2021.<br>
-          [<a href="https://doi.org/10.23919/MVA51890.2021.9511354" target="_blank">Paper</a>][<a href="https://github.com/seiyaito/sfts">Code</a> (Not published due to license issues)]
-        </p>
-      </li>
-      <li>
-        <p>
-          Taku Fujitomi, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Bi-directional Recurrent MVSNet for High-resolution Multi-view Stereo</b><br>
-          The 17th International Conference on Machine Vision Applications (MVA 2021), 2021.<br>
-          [<a href="https://doi.org/10.23919/MVA51890.2021.9511358" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Yusuke Nakasato, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Complex Nonlinear and Grid-Sampling Harmonic Convolution for Rotation Equivariant Image Recognition</b><br>
+                International Workshop on Frontiers of Computer Vision (IW-FCV 2020), 2020.<br>
+              </p>
+            </li>
 
-      <li>
-        <p>
-          Takafumi Nagi, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>Automatic Dataset Collection for Speech-Driven Gesture Generation</b><br>
-          The 15th International Conference on Quality Control by Artificial Vision (QCAV 2021), 2021.<br>
-          [<a href="https://doi.org/10.1117/12.2591375" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Kazunari Takagi, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Boosting Monocular Depth Estimation with Channel Attention and Mutual Learning</b><br>
+                The 3rd International Conference on Imaging, Vision &amp; Pattern Recognition (IVPR), 2019.<br>
+                [<a href="https://ieeexplore.ieee.org/document/8858565" target="_blank">Paper</a>][<a href="https://github.com/kazutvoice05/TBDP-Net">Code</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          Gakuto Murayama, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>Reducing Depth Ambiguity in 3D Human Pose and Body Shape Estimation</b><br>
-          The 15th International Conference on Quality Control by Artificial Vision (QCAV 2021), 2021.<br>
-          [<a href="https://doi.org/10.1117/12.2591151" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Natsuki Hase, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Data Augmentation for Intra-Class Imbalance with Generative Adversarial Network</b><br>
+                Quality Control by Artificial Vision (QCAV 2019), 2019.<br>
+                [<a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11172/1117206/Data-augmentation-for-intra-class-imbalance-with-generative-adversarial-network/10.1117/12.2521692.short?SSO=1" target="blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          Hiroki Kojima, Naoshi Kaneko, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>You Don't Drink a Cupboard: Improving Egocentric Action Recognition with Co-Occurrence of Verbs and Nouns</b><br>
-          The 15th International Conference on Quality Control by Artificial Vision (QCAV 2021), 2021.<br>
-          [<a href="https://doi.org/10.1117/12.2591298" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Nobuhiro Suga, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Multiple Human Tracking with Dual Cost Graphs</b><br>
+                Quality Control by Artificial Vision (QCAV), 2019.<br>
+                [<a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11172/111721A/Multiple-human-tracking-with-dual-cost-graphs/10.1117/12.2521701.short" target="blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          Naoshi Kaneko, Mei Oyamay, Masaki Hayashiz, <u>Seiya Ito</u>, Kazuhiko Sumi.<br>
-          <b>Feature Bridging Networks for 3D Human BodyShape Estimation from a Single Depth Map</b><br>
-          The 4th International Conference on Imaging, Vision &amp; Pattern Recognition (IVPR 2020), 2020.<br>
-          [<a href="https://doi.org/10.1109/ICIEVicIVPR48672.2020.9306656" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Masato Fukuzaki, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Robot Grasp Planning with Integration Map of Graspability and Object Occupancy</b><br>
+                International Workshop on Frontiers of Computer Vision (IW-FCV), 2019.<br>
+                [<a href="#" tabindex="-1" target="blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          Ryo Tamura, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Towards Detailed 3D Modeling: Mesh Super-Resolution via Deformation</b><br>
-          The 4th International Conference on Imaging, Vision &amp; Pattern Recognition (IVPR 2020), 2020.<br>
-          [<a href="https://doi.org/10.1109/ICIEVicIVPR48672.2020.9306533" target="_blank">Paper</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                Kaho Yamada, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
+                <b>Human Action Recognition via Body Part Region Segmented Dense Trajectories</b><br>
+                ACCV 2018 Workshop on Attention/Intention Understanding, 2018.<br>
+                [<a href="https://link.springer.com/chapter/10.1007/978-3-030-21074-8_6" target="blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          Yusuke Nakasato, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Complex Nonlinear and Grid-Sampling Harmonic Convolution for Rotation Equivariant Image Recognition</b><br>
-          International Workshop on Frontiers of Computer Vision (IW-FCV 2020), 2020.<br>
-        </p>
-      </li>
+            <li>
+              <p>
+                <u>Seiya Ito</u>*, Naoshi Kaneko*, Yuma Shinohara, Kazuhiko Sumi (* equal contribution).<br>
+                <b>Deep Modular Network Architecture for Depth Estimation from Single Indoor Images</b><br>
+                ECCV 2018 Workshop on 3D Reconstruction in the Wild, 2018.<br>
+                [<a href="https://openaccess.thecvf.com/content_ECCVW_2018/papers/11129/Ito_Deep_Modular_Network_Architecture_for_Depth_Estimation_from_Single_Indoor_ECCVW_2018_paper.pdf" target="blank">Paper</a>]
+              </p>
+            </li>
 
-      <li>
-        <p>
-          Kazunari Takagi, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Boosting Monocular Depth Estimation with Channel Attention and Mutual Learning</b><br>
-          The 3rd International Conference on Imaging, Vision &amp; Pattern Recognition (IVPR), 2019.<br>
-          [<a href="https://ieeexplore.ieee.org/document/8858565" target="_blank">Paper</a>][<a href="https://github.com/kazutvoice05/TBDP-Net">Code</a>]
-        </p>
-      </li>
+            <li>
+              <p>
+                <u>Seiya Ito</u>, Naoshi Kaneko, Junji Takahashi, and Kazuhiko Sumi.<br>
+                <b>Global Localization from a Single Image in Known Indoor Environments</b><br>
+                The 7th International Conference on Informatics, Electronics & Vision (ICIEV), 2018.<br>
+                [<a href="https://ieeexplore.ieee.org/document/8641025" target="blank">Paper</a>]
+              </p>
+            </li>
+          </ol>
+        </div>
+        <div class="tab-pane fade" id="others" role="tabpanel">
+          <ul>
+            <li>Talk: <u>伊東 聖矢</u> — <strong>[特別講演] 画像を用いた環境のセマンティックモデリング</strong> (2023)</li>
+            <li>Domestic Conference: 52 papers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <li>
-        <p>
-          Natsuki Hase, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Data Augmentation for Intra-Class Imbalance with Generative Adversarial Network</b><br>
-          Quality Control by Artificial Vision (QCAV 2019), 2019.<br>
-          [<a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11172/1117206/Data-augmentation-for-intra-class-imbalance-with-generative-adversarial-network/10.1117/12.2521692.short?SSO=1" target="blank">Paper</a>]
-        </p>
-      </li>
+  <!-- Awards & Grants -->
+  <section id="awards">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="h4 mb-3">Awards</h2>
+          <div class="soft-card p-4">
+            <ul class="mb-0">
+              <li>2024 Excellent Research Paper Award in IW-FCV2024.</li>
+              <li>2022 MIRU Interactive Presentation Award.</li>
+              <li>2022 Interactive Session Audience Award in SSII 2022.</li>
+              <li>2019 Best Paper Award in IVPR2019.</li>
+              <li>2019 Best poster presentation award in IW-FCV2019.</li>
+              <li>2018 Best Master Thesis Award, Aoyama Gakuin University.</li>
+              <li>2016 Student Encouragement Award of 78th IPSJ National Convention.</li>
+              <li>2016 Best Graduation Thesis Award, Aoyama Gakuin University.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h2 class="h4 mb-3">Grants</h2>
+          <div class="soft-card p-4">
+            <ul class="mb-0">
+              <li>JSPS Grant-in-Aid for Early-Career Scientists [Apr. 2022 - Mar. 2024] (<a href="https://kaken.nii.ac.jp/en/grant/KAKENHI-PROJECT-22K17978/" target="_blank">link</a>)</li>
+              <li>JSPS Research Fellowships for Young Scientists (DC2/PD) [Apr. 2020 - Mar. 2022]</li>
+              <li>2019 Early Eagle Program, Aoyama Gakuin University (PI)</li>
+              <li>2018 Early Eagle Program, Aoyama Gakuin University (PI)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <li>
-        <p>
-          Nobuhiro Suga, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Multiple Human Tracking with Dual Cost Graphs</b><br>
-          Quality Control by Artificial Vision (QCAV), 2019.<br>
-          [<a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11172/111721A/Multiple-human-tracking-with-dual-cost-graphs/10.1117/12.2521701.short" target="blank">Paper</a>]
-        </p>
-      </li>
+  <!-- Projects (optional showcase) -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="h4 mb-3">Selected Projects</h2>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <a class="text-decoration-none" href="https://github.com/seiyaito/Dyna3DBench" target="_blank">
+            <div class="soft-card p-4 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <strong>Dyna3DBench</strong>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </div>
+              <div class="small muted">Benchmark for 3D Reconstruction with Semantic Completion in Dynamic Environments.</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="text-decoration-none" href="https://github.com/kazutvoice05/TBDP-Net" target="_blank">
+            <div class="soft-card p-4 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <strong>TBDP-Net</strong>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </div>
+              <div class="small muted">Monocular depth estimation with channel attention & mutual learning.</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="text-decoration-none" href="https://aoyamacvl.github.io/recipe-from-flyers/" target="_blank">
+            <div class="soft-card p-4 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <strong>Recipe from Flyers</strong>
+                <i class="bi bi-box-arrow-up-right"></i>
+              </div>
+              <div class="small muted">Automatic recipe recommendation from food flyers.</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <li>
-        <p>
-          Masato Fukuzaki, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Robot Grasp Planning with Integration Map of Graspability and Object Occupancy</b><br>
-          International Workshop on Frontiers of Computer Vision (IW-FCV), 2019.<br>
-          [<a href="#" tabindex="-1" target="blank">Paper</a>]
-        </p>
-      </li>
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="soft-card p-4">
+        <h2 class="h4 mb-3">Contact</h2>
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+          <a class="btn btn-primary" href="mailto:ito.seiya.1127@gmail.com"><i class="bi bi-envelope me-1"></i>Email</a>
+          <a class="btn btn-outline-secondary" href="https://www.linkedin.com/in/seiyaito/" target="_blank"><i class="bi bi-linkedin me-1"></i>LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <li>
-        <p>
-          Kaho Yamada, <u>Seiya Ito</u>, Naoshi Kaneko, Kazuhiko Sumi.<br>
-          <b>Human Action Recognition via Body Part Region Segmented Dense Trajectories</b><br>
-          ACCV 2018 Workshop on Attention/Intention Understanding, 2018.<br>
-          [<a href="https://link.springer.com/chapter/10.1007/978-3-030-21074-8_6" target="blank">Paper</a>]
-        </p>
-      </li>
+  <footer class="bg-body-tertiary">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="small muted">© <span id="year"></span> Seiya Ito</div>
+      <div class="small"><a class="icon-link" href="#">Back to top</a></div>
+    </div>
+  </footer>
 
-      <li>
-        <p>
-          <u>Seiya Ito</u>*, Naoshi Kaneko*, Yuma Shinohara, Kazuhiko Sumi (* equal contribution).<br>
-          <b>Deep Modular Network Architecture for Depth Estimation from Single Indoor Images</b><br>
-          ECCV 2018 Workshop on 3D Reconstruction in the Wild, 2018.<br>
-          [<a href="https://openaccess.thecvf.com/content_ECCVW_2018/papers/11129/Ito_Deep_Modular_Network_Architecture_for_Depth_Estimation_from_Single_Indoor_ECCVW_2018_paper.pdf" target="blank">Paper</a>]
-        </p>
-      </li>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      <li>
-        <p>
-          <u>Seiya Ito</u>, Naoshi Kaneko, Junji Takahashi, and Kazuhiko Sumi.<br>
-          <b>Global Localization from a Single Image in Known Indoor Environments</b><br>
-          The 7th International Conference on Informatics, Electronics & Vision (ICIEV), 2018.<br>
-          [<a href="https://ieeexplore.ieee.org/document/8641025" target="blank">Paper</a>]
-        </p>
-      </li>
-    </ol>
-    <br>
-
-    <h4>Talk</h4>
-    <ul>
-      <li>
-        <u>伊東 聖矢</u><br>
-          <b>[特別講演] 画像を用いた環境のセマンティックモデリング</b><br>
-          精密工学会 画像応用技術専門委員会 サマーセミナー, 2023.<br>
-      </li>
-    </ul>
-
-    <h4>Domestic Conference</h4>
-    <ul><li>43 papers</li></ul>
-    <br>
-
-    <h4>Awards</h4>
-    <ul>
-      <li>2024 Excellent Research Paper Award in IW-FCV2024.</li>
-      <li>2022 MIRU Interactive Presentation Award.</li>
-      <li>2022 Interactive Session Audience Award in SSII 2022.</li>
-      <li>2019 Best Paper Award in IVPR2019.</li>
-      <li>2019 Best poster presentation award in <a href="https://mr.hanyang.ac.kr/IW-FCV2019/conference/#award">IW-FCV2019</a>. </li>
-      <li>2018 Best Master Thesis Award, Graduate School of Science and Engineering, Intelligence and Information Course, Aoyama Gakuin University. (3 winners out of 29 students)</li>
-      <li>2016 Student Encouragement Award of 78th IPSJ National Convention.</li>
-      <li>2016 Best Graduation Thesis Award, Department of Integrated Information Technology, Aoyama Gakuin University. (7 winners out of 120 students)</li>
-    </ul>
-    <br>
-
-    <h4>Grants</h4>
-    <ul>
-      <li>JSPS Grant-in-Aid for Early-Career Scientists [Apr. 2022 - Mar. 2024] (<a href="https://kaken.nii.ac.jp/en/grant/KAKENHI-PROJECT-22K17978/">link</a>)</li>
-      <li>JSPS Research Fellowships for Young Scientists (DC2/PD) [Apr. 2020 - Mar. 2022]</li>
-      <li>2019 Early Eagle Program, Aoyama Gakuin University-Supported Program (PI)</li>
-      <li>2018 Early Eagle Program, Aoyama Gakuin University-Supported Program (PI)</li>
-    </ul>
-    <br>
-  </div>
-  <script crossorigin="anonymous" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script crossorigin="anonymous" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script crossorigin="anonymous" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    // Dark mode toggle using Bootstrap 5.3 data-bs-theme
+    const storedTheme = localStorage.getItem('theme');
+    const getPreferredTheme = () => storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const setTheme = theme => { document.documentElement.setAttribute('data-bs-theme', theme); localStorage.setItem('theme', theme); };
+    setTheme(getPreferredTheme());
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-bs-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
 </body>
 </html>
 
